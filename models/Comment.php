@@ -116,7 +116,7 @@ class Comment extends \yii\db\ActiveRecord
      * @param integer the maximum number of comments that should be returned
      * @return array the most recently added comments
      */
-    public function findRecentComments($limit=10)
+    public static function findRecentComments($limit=10)
     {
     	
     	$query = Comment::find()
@@ -124,9 +124,8 @@ class Comment extends \yii\db\ActiveRecord
     	->orderBy('create_time DESC')
     	->limit($limit)
     	->all();
- 	
     	return $query;
-
+	
 	}
     
     /**

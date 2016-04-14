@@ -60,7 +60,7 @@ $pendingCommentCount = Comment::getPengdingCommentCount();
 			'' : '<li><span class="badge badge-inverse">' . $pendingCommentCount . '</span></li>',
 		[
 		    'label' => '博客参数',
-		    'url' => ['/comment/index'],
+		    'url' => ['/lookup/index'],
 		    'visible' => !Yii::$app->user->isGuest
 		],
 		['label' => '关于博主', 'url' => ['/site/about']],

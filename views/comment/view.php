@@ -16,37 +16,41 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('修改', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('删除', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => '确定要删除吗?',
-                'method' => 'post',
-            ],
-        ]) ?>
+	<?= Html::a('修改', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+	<?=
+	Html::a('删除', ['delete', 'id' => $model->id], [
+	    'class' => 'btn btn-danger',
+	    'data' => [
+		'confirm' => '确定要删除吗?',
+		'method' => 'post',
+	    ],
+	])
+	?>
     </p>
 
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'id',
-            'content:ntext',
-        		[
-        		'attribute'=>'status',
-        		'value' => Lookup::item("CommentStatus",$model->status),
-        				],
-        		[
-        		'attribute'=>'create_time',
-        		'value' => date("Y-m-d H:i:s",$model->create_time),
-        		],
-            'author',
-            'email:email',
-            'url:url',
-        		[
-        		'attribute'=>'post_id',
-        				'value' => $model->post->title."(ID:".$model->post_id.")",
-        		],
-        ],
-    ]) ?>
+    <?=
+    DetailView::widget([
+	'model' => $model,
+	'attributes' => [
+	    'id',
+	    'content:ntext',
+	    [
+		'attribute' => 'status',
+		'value' => Lookup::item("CommentStatus", $model->status),
+	    ],
+	    [
+		'attribute' => 'create_time',
+		'value' => date("Y-m-d H:i:s", $model->create_time),
+	    ],
+	    'author',
+	    'email:email',
+	    'url:url',
+	    [
+		'attribute' => 'post_id',
+		'value' => $model->post->title . "(ID:" . $model->post_id . ")",
+	    ],
+	],
+    ])
+    ?>
 
 </div>
